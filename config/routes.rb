@@ -1,12 +1,14 @@
 Cr1::Application.routes.draw do
   devise_for :users
   resources  :users
+  resources  :items
 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   root to: 'static_pages#home'
+  match '/newitem' to: 'items#new'
 devise_scope :user do
   match '/signup', to: 'devise/registrations#new'
   match '/signin', to: 'devise/sessions#new'

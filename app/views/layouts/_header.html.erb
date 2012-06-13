@@ -16,13 +16,13 @@
                 <li><%= link_to "Settings", '#' %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Logout", signout_path, method: "delete" %>
+                  <%= link_to "Logout", signout_path %>
                 </li>
               </ul>
             </li>
             <% else %>
           <li><%= link_to "Sign Up", signup_path %></li>
-          <li><%= link_to "Log In", root_path %><li>
+          <li><%= link_to "Log In", signin_path %><li>
         </ul>
         <% end %>
         <ul class="nav pull-right" >

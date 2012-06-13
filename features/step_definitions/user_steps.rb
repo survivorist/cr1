@@ -168,4 +168,16 @@ Then /^I should see invalid login message$/ do
   page.should have_content "Invalid email or password"
 end
 
+Given /^I am logged in$/ do
+  create_user
+  sign_in
+end
+
+When /^I sign out$/ do
+  visit signout_path
+end
+
+Then /^I should see a signed out message$/ do
+  page.should have_content "Signed out successfully"
+end
 

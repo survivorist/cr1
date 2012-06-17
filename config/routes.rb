@@ -8,7 +8,10 @@ Cr1::Application.routes.draw do
   # first created -> highest priority.
 
   root to: 'static_pages#home'
-  match '/newitem' to: 'items#new'
+    match '/newitem', to: 'items#new'
+
+
+
 devise_scope :user do
   match '/signup', to: 'devise/registrations#new'
   match '/signin', to: 'devise/sessions#new'
@@ -68,4 +71,5 @@ devise_scope :user do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end

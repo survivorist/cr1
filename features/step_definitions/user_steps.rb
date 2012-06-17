@@ -47,6 +47,30 @@ def sign_in
   click_button "Sign in"
 end
 
+def create_item
+  @item ||= {title: "Gibson", subtitle: "EJ-200", condition: 5, 
+    description: "Brand new Gibson Ej-200 in mint condition", 
+    day_price: 10, user_id: 2}
+end
+
+def create_listing
+  @item ||= FactoryGirl.create(:item)
+end
+
+def fill_listing
+  visit '/newitem'
+  fill_in "Title", with: @item[:title]
+  fill_in "Subtitle", with: @item[:subtitle]
+  fill_in "Condition", with: @item[:condition]
+  fill_in "Description", with: @item[:description]
+  fill_in "Price", with: @item[:day_price]
+  click_button "List"
+end
+
+
+
+
+
 When /^I click the "([^"]*)" link$/ do |link|
 	click_link ("#{link}")
 
@@ -180,4 +204,57 @@ end
 Then /^I should see a signed out message$/ do
   page.should have_content "Signed out successfully"
 end
+
+Given /^I am not signed in$/ do
+  visit signout_path
+end
+
+When /^I visit the new item page$/ do
+  visit newitem_path
+end
+
+Then /^I should see the signin page$/ do
+  page.should have_content "Sign in"
+end
+
+Then /^The required signin message$/ do
+  page.should have_content "You need to sign in or sign up before continuing"
+end
+
+Given /^I am signed in$/ do
+  create_user
+  sign_in
+end
+
+When /^I list an item$/ do
+  visit newitem_path
+  create_listing
+  fill_listing
+end
+
+Then /^I should see a successful listing message$/ do
+  page.should have_content "Your item has been saved"
+end
+
+When /^I list an item with no description$/ do
+  create_item
+  @item = @item.merge(description: "")
+  fill_listing
+end
+
+Then /^I should see an incomplete info message$/ do
+  page.should have_content "Description is too short (minimum is 20 characters)"
+end
+
+Given /^I am a signed in user$/ do
+  create_user
+  sign_in
+end
+
+When /^I list an item without a subtitle$/ do
+  create_item
+  @item = @item.merge(subtitle: "")
+  fill_listing
+end
+
 

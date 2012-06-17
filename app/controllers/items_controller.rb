@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	before_filter :authenticate_user!, except:[:show, :index]
+before_filter :authenticate_user!
 
 def new
 	@item = Item.new
@@ -15,7 +15,8 @@ def create
 		flash[:success] = "Your item has been saved"
 		redirect_to root_path
 	else
-		render 'static_pages/item_error'
+
+		render 'new'
 		end
 	end
 

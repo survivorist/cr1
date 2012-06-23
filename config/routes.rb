@@ -3,11 +3,12 @@ Cr1::Application.routes.draw do
   resources  :users
   resources  :items
 
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   root to: 'static_pages#home'
+
+    match '/main', to: 'users#user_main'
     match '/newitem', to: 'items#new'
 
 

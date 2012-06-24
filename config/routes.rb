@@ -2,16 +2,9 @@ Cr1::Application.routes.draw do
   devise_for :users
   resources  :users, :only => [:show, :index] 
   resources  :items
-  resources :messages do
-    member do
-      delete 'trash'
-      post 'untrash'
-    end
-    collection do
-      delete 'trash'
-    end
   end
-  post 'search' => 'messages#search'
+
+
   root :to => 'messages#index'
 
 

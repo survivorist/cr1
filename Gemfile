@@ -6,7 +6,6 @@ gem 'devise'
 gem 'bcrypt-ruby'
 gem 'cancan'
 gem 'rolify'
-gem 'mailboxer'
 
 
 # Bundle edge Rails instead:

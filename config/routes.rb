@@ -2,10 +2,9 @@ Cr1::Application.routes.draw do
   devise_for :users
   resources  :users, :only => [:show, :index] 
   resources  :items
-  end
+  
 
 
-  root :to => 'messages#index'
 
 
   # The priority is based upon order of creation:

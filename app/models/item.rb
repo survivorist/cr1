@@ -11,3 +11,18 @@ class Item < ActiveRecord::Base
   
   belongs_to :user
 end
+# == Schema Information
+#
+# Table name: items
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  subtitle    :string(255)
+#  condition   :integer
+#  description :text
+#  day_price   :decimal(, )
+#  user_id     :integer
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+

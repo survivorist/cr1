@@ -6,6 +6,7 @@ gem 'devise'
 gem 'bcrypt-ruby'
 gem 'cancan'
 gem 'rolify'
+gem 'mailboxer'
 
 
 # Bundle edge Rails instead:
@@ -13,7 +14,7 @@ gem 'rolify'
 group :development do
 	gem 'rspec-rails'
 	gem 'sqlite3'
-	gem 'annotate'
+	gem 'annotate', '2.4.1.beta1'
 end
 
 

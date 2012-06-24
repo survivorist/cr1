@@ -1,6 +1,6 @@
 Cr1::Application.routes.draw do
   devise_for :users
-  resources  :users
+  resources  :users, :only => [:show, :index] 
   resources  :items
 
   # The priority is based upon order of creation:
@@ -8,7 +8,6 @@ Cr1::Application.routes.draw do
 
   root to: 'static_pages#home'
 
-    match '/main', to: 'users#user_main'
     match '/newitem', to: 'items#new'
 
 

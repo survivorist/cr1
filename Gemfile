@@ -4,8 +4,9 @@ gem 'rails', '3.2.3'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'bcrypt-ruby'
-gem 'cloudinary'
-gem 'carrierwave'
+gem 'cancan'
+gem 'rolify'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

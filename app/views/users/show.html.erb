@@ -16,7 +16,6 @@
       <h1>
       	<% @user = User.find(params[:id]) %>
         <%= gravatar_for @user %>
-        <%= @user.first_name %>
       </h1>
     </section>
   </aside>
